@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+jar  {
+    manifest {
+        attributes(
+                'Main-Class': 'org.incendo.irc.IrcBot'
+        )
+    }
+}
+
+application {
+    mainClassName = 'org.incendo.irc.IrcBot'
+}
+
+repositories {
+    mavenLocal()
+    maven { url 'https://jitpack.io' }
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.inject:guice:4.2.3'
+    compile 'com.google.inject.extensions:guice-assistedinject:4.2.3'
+    compile 'org.spongepowered:configurate-core:3.7.1'
+    compile 'org.spongepowered:configurate-hocon:3.7.1'
+    implementation 'cloud.commandframework:cloud-pircbotx:1.1.0-SNAPSHOT'
+    implementation 'com.github.pircbotx:pircbotx:83a4c22e80'
+    compile 'org.checkerframework:checker-qual:3.5.0'
+    compile 'io.leangen.geantyref:geantyref:1.3.11'
+    compile group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.8.0-beta4'
+    compile group: 'com.google.guava', name: 'guava', version: '30.0-jre'
+}
